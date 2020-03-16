@@ -88,6 +88,95 @@ Rational Rational::operator+(const Rational& r) {
 	rez.denominator = denominator * r.denominator;
 	rez.irreducible();
 	return rez;
+
+}
+
+Rational Rational::operator-(const Rational& r) {
+	/*
+	Subctracts 2 rational numbers and returns the result
+	Input:
+		r - Rational
+	Output:
+		Rational
+	@author: Victor
+	*/
+	Rational rez;
+	rez.count = count * r.denominator - r.count * denominator;
+	rez.denominator = denominator * r.denominator;
+	rez.irreducible();
+	return rez;
+}
+
+Rational Rational::operator*(const Rational& r) {
+	/*
+	Multiplies 2 rational numbers and returns the result
+	Input:
+		r - Rational
+	Output:
+		Rational
+	@author: Victor
+	*/
+	Rational rez;
+	rez.count = count * r.count;
+	rez.denominator = denominator * r.denominator;
+	rez.irreducible();
+	return rez;
+}
+
+Rational Rational::operator/(const Rational& r) {
+	/*
+	Divides 2 rational numbers and returns the result
+	Input:
+		r - Rational
+	Output:
+		Rational
+	@author: Victor
+	*/
+	Rational rez;
+	rez.count = count * r.denominator;
+	rez.denominator = denominator * r.count;
+	rez.irreducible();
+	return rez;
+}
+
+Rational Rational::operator^(int power) {
+	/*
+	Raises a rational number to a power
+	Input:
+		power - int
+	Output:
+		Rational
+	@author: Victor
+	*/
+	Rational rez;
+	if (power < 0)
+	{
+		rez.count = pow(denominator, power);
+		rez.denominator = pow(count, power);
+	}
+	else
+	{
+		rez.count = pow(count, power);
+		rez.denominator = pow(denominator, power);
+	}
+	rez.irreducible();
+	return rez;
+}
+
+Rational Rational::inverse() {
+	/*
+	Forms the opposite of a rational number
+	Input:
+		-
+	Output:
+		Rational
+	@author: Victor
+	*/
+	Rational rez;
+	rez.count = denominator;
+	rez.denominator = count;
+	return rez;
+
 }
 
 Rational::~Rational() {

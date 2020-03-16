@@ -27,4 +27,10 @@ public:
 	Rational operator*(const Rational& r);
 
 	Rational operator/(const Rational& r);
+
+	Rational operator^(int power);
+	
+	Rational inverse();
+
+	~Rational();
 };
